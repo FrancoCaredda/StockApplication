@@ -26,13 +26,9 @@
 			<EntityType Name="Type">
 				<Key>
 					<PropertyRef Name="TypeName"/>
-					<PropertyRef Name="Percent"/>
-					<PropertyRef Name="Salary"/>
 				</Key>
                 <Property Name="TypeName" Type="Edm.String" Nullable="false" MaxLength="40" FixedLength="false"
 						  Unicode="true"/>
-				<Property Name="Percent" Type="Edm.Float" Nullable="false" />
-				<Property Name="Salary" Type="Edm.Float" Nullable="false" />
             </EntityType>
 		</Schema>
 		<Schema Namespace="ODataWebV2.Northwind.Model" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">

@@ -1,19 +1,14 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel"
-], function(Controller, JSONModel) {
+    "sap/ui/core/mvc/Controller"
+], function(Controller) {
     'use strict';
     
     return Controller.extend("stock.application.controller.Statistics", {
-        _types: [],
-        onInit: function() {
-            this.getView().setModel(new JSONModel({
-                criticalValue: 15,
-                currency: "EUR"
-            }), "view");
+        selectTypeChanged: function(event) {
+            this._calculateDataFor(event.getSource().getSelectedItem().getBindingContext("products").getProperty("TypeName"));
         },
-        constructTable: function(sId, oContext) {
-            return this.getView().byId("stat-row").clone(sId);
+        _calculateDataFor: function(type) {
+
         }
     });
 });

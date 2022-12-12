@@ -1,32 +1,17 @@
 [
     {
-        "TypeName": "Console",
-        "Percent": 18.799,
-        "Salary": 12850
+        "TypeName": "Console"
     },
     {
-        "TypeName": "Smartphone",
-        "Percent": 65.784,
-        "Salary": 44965
+        "TypeName": "Smartphone"
     },
     {
-        "TypeName": "Headphones",
-        "Percent": 1.7526,
-        "Salary": 1197.9
+        "TypeName": "Headphones"
     },
     {
-        "TypeName": "Smartwatch",
-        "Percent": 4.0963,
-        "Salary": 2799.9
+        "TypeName": "Smartwatch"
     },
     {
-        "TypeName": "Videochip",
-        "Percent": 9.5679,
-        "Salary": 6539.9
-    },
-    {
-        "TypeName": "Total",
-        "Percent": 100,
-        "Salary": 68352
+        "TypeName": "Videochip"
     }
 ]
