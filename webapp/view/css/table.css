@@ -1,0 +1,8 @@
+.element-unavailable, .element-unavailable:hover {
+    background-color: rgb(255, 128, 128);
+    border: 1px solid red;
+}
+
+.element-text-unavailable {
+    color: white;
+}

@@ -1,0 +1,37 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core"
+          controllerName="stock.application.controller.Products">
+    <Table id="products-table" class="sapUiResponsiveMargin" width="auto" items="{
+                                                                path: 'products>/Products',
+                                                                factory: '.buildLines'
+                                                             }">
+        <headerToolbar>
+            <Toolbar>
+                <Title text="{i18n>products}" />
+                <ToolbarSpacer />
+                <SearchField placeholder="{i18n>searchFieldPlaceholder}" width="25%"/>
+                <Button icon="sap-icon://navigation-up-arrow" press=".expandTable"/>
+            </Toolbar>
+        </headerToolbar>
+        <columns>
+            <Column id="name-column" hAlign="Center">
+                <Text text="{i18n>tableNameColumn}" />
+            </Column>
+            <Column id="type-column" hAlign="Center">
+                <Text text="{i18n>tableTypeColumn}" />
+            </Column>
+            <Column id="producer-column" hAlign="Center">
+                <Text text="{i18n>tableProducerColumn}" />
+            </Column>
+            <Column id="price-column" hAlign="Center">
+                <Text text="{i18n>tablePriceColumn}" />
+            </Column>
+            <Column id="count-column" hAlign="Center">
+                <Text text="{i18n>tableCountColumn}" />
+            </Column>
+        </columns>
+        <dependents>
+             <core:Fragment fragmentName="stock.application.view.fragments.TableItem" type="XML" />
+             <core:Fragment fragmentName="stock.application.view.fragments.TableItemUnavailable" type="XML" />
+        </dependents>
+    </Table>
+</mvc:View>

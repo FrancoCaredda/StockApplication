@@ -1,0 +1,13 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+          controllerName="stock.application.controller.Product">
+    <VBox class="sapUiResponsiveMargin">
+        <Title text="{products>Name}" />
+        <VBox class="sapUiSmallMarginTop">
+            <Text text="{i18n>tableTypeColumn}: {products>Type}"/>
+            <Text text="{i18n>tableCountColumn}: {products>Quantity}"/>
+            <Text text="{i18n>tablePriceColumn}: {products>Price}"/>
+            <Text text="{i18n>tableSoldCountColumn}: {products>Sold}"/>
+            <Text id="total-salary" text=""/>
+        </VBox>
+    </VBox>
+</mvc:View>

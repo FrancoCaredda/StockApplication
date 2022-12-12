@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m" 
+                         xmlns:core="sap.ui.core">
+    <ColumnListItem id="simpleItem" type="Navigation" press=".moveToProduct">
+        <cells>
+            <Label text="{products>Name}"/>
+            <Label text="{products>Type}"/>
+            <Label text="{products>Producer}"/>
+            <Label text="{products>Price}"/>
+            <Label text="{products>Quantity}"/>
+        </cells>
+    </ColumnListItem>
+</core:FragmentDefinition>

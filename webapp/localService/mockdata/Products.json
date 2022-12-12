@@ -1,0 +1,178 @@
+[
+    {
+        "Name": "PlayStation 5",
+        "Type": "Console",
+        "Producer": "Sony",
+        "Price": 449.99,
+        "Quantity": 0,
+        "Sold": 4
+    },
+    {
+        "Name": "PlayStation 4",
+        "Type": "Console",
+        "Producer": "Sony",
+        "Price": 299.99,
+        "Quantity": 50,
+        "Sold": 5
+    },
+    {
+        "Name": "PlayStation 4 Pro",
+        "Type": "Console",
+        "Producer": "Sony",
+        "Price": 399.99,
+        "Quantity": 45,
+        "Sold": 6
+    },
+    {
+        "Name": "Xbox One",
+        "Type": "Console",
+        "Producer": "Microsoft",
+        "Price": 299.99,
+        "Quantity": 30,
+        "Sold": 3
+    },
+    {
+        "Name": "Xbox One S",
+        "Type": "Console",
+        "Producer": "Microsoft",
+        "Price": 349.99,
+        "Quantity": 40,
+        "Sold": 6
+    },
+    {
+        "Name": "Xbox One X",
+        "Type": "Console",
+        "Producer": "Microsoft",
+        "Price": 399.99,
+        "Quantity": 50,
+        "Sold": 1
+    },
+    {
+        "Name": "Xbox Series S",
+        "Type": "Console",
+        "Producer": "Microsoft",
+        "Price": 449.99,
+        "Quantity": 30,
+        "Sold": 7
+    },
+    {
+        "Name": "Xbox Series X",
+        "Type": "Console",
+        "Producer": "Microsoft",
+        "Price": 599.99,
+        "Quantity": 20,
+        "Sold": 1
+    },
+    {
+        "Name": "Samsung Galaxy S22 Ultra",
+        "Type": "Smartphone",
+        "Producer": "Samsung",
+        "Price": 1200,
+        "Quantity": 100,
+        "Sold": 9
+    },
+    {
+        "Name": "Samsung Galaxy S22",
+        "Type": "Smartphone",
+        "Producer": "Samsung",
+        "Price": 949.99,
+        "Quantity": 60,
+        "Sold": 0
+    },
+    {
+        "Name": "IPhone 14 Pro Max",
+        "Type": "Smartphone",
+        "Producer": "Apple",
+        "Price": 1620,
+        "Quantity": 75,
+        "Sold": 10
+    },
+    {
+        "Name": "IPhone 13",
+        "Type": "Smartphone",
+        "Producer": "Apple",
+        "Price": 899.99,
+        "Quantity": 40,
+        "Sold": 0
+    },
+    {
+        "Name": "Airpods Pro 2021",
+        "Type": "Headphones",
+        "Producer": "Apple",
+        "Price": 269.99,
+        "Quantity": 15,
+        "Sold": 4
+    },
+    {
+        "Name": "Xiaomi Redmi 9C",
+        "Type": "Smartphone",
+        "Producer": "Xiaomi",
+        "Price": 129.99,
+        "Quantity": 35,
+        "Sold": 10
+    },
+    {
+        "Name": "Sony WFC500B",
+        "Type": "Headphones",
+        "Producer": "Sony",
+        "Price": 58.99,
+        "Quantity": 40,
+        "Sold": 2
+    },
+    {
+        "Name": "Xiaomi 11T Pro",
+        "Type": "Smartphone",
+        "Producer": "Xiaomi",
+        "Price": 429.99,
+        "Quantity": 40,
+        "Sold": 8
+    },
+    {
+        "Name": "Samsung Galaxy Z Fold4",
+        "Type": "Smartphone",
+        "Producer": "Samsung",
+        "Price": 1730,
+        "Quantity": 15,
+        "Sold": 7
+    },
+    {
+        "Name": "POCO M4 Pro",
+        "Type": "Smartphone",
+        "Producer": "POCO",
+        "Price": 222.99,
+        "Quantity": 20,
+        "Sold": 5
+    },
+    {
+        "Name": "Samsung Galaxy Watch5 Pro",
+        "Type": "Smartwatch",
+        "Producer": "Samsung",
+        "Price": 399.99,
+        "Quantity": 30,
+        "Sold": 7
+    },
+    {
+        "Name": "DUAL-RTX3060-012G-V2",
+        "Type": "Videochip",
+        "Producer": "Asus",
+        "Price": 419.99,
+        "Quantity": 0,
+        "Sold": 10
+    },
+    {
+        "Name": "GEFORCE RTX 3070",
+        "Type": "Videochip",
+        "Producer": "PNY",
+        "Price": 679.99,
+        "Quantity": 10,
+        "Sold": 0
+    },
+    {
+        "Name": "GEFORCE RTX 3070 TI",
+        "Type": "Videochip",
+        "Producer": "PNY",
+        "Price": 779.99,
+        "Quantity": 5,
+        "Sold": 3
+    }
+]

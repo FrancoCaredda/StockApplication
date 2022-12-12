@@ -1,0 +1,18 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+          controllerName="stock.application.controller.Index">
+    <Page showNavButton="{view>/displayBackButton}" navButtonPress=".navToIntro">
+        <headerContent>
+            <Toolbar>
+                <Title text="{i18n>title}" />
+                <Button text="{i18n>products}" press=".navToProducts" />
+                <Button text="{i18n>statistics}" press=".navToStatistics"/>
+            </Toolbar>
+        </headerContent>
+        <content>
+            <App id="outlet"/>
+        </content>
+        <footer>
+
+        </footer>
+    </Page>
+</mvc:View>

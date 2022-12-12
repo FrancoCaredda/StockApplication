@@ -1,0 +1,147 @@
+{
+    "_version": "1.1.0",
+    "sap.app": {
+            "_version": "1.1.0",
+            "id": "app",
+            "type": "application",
+            "i18n": "i18n/texts.properties",
+            "title": "StockAnalyzer",
+            "description": "{{key in .properties file}}",
+            "applicationVersion": {
+                    "version": "0.0.1"
+            },
+            "ach": "ach",
+            "offline": false,
+            "dataSources": {
+                "productsRemote": {
+                        "type": "OData",
+                        "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/",
+                        "settings": {
+                                "odataVersion": "2.0"
+                        }
+                }
+            }
+    },
+    "sap.fiori": {
+            "_version": "1.1.0",
+            "registrationIds": [
+                    "FioriId"
+            ],
+            "archeType": "analytical"
+    },
+    "sap.ui": {
+            "_version": "1.1.0",
+            "technology": "UI5",
+            "deviceTypes": {
+                    "desktop": true,
+                    "tablet": true,
+                    "phone": false
+            },
+            "supportedThemes": [
+                    "sap_hcb",
+                    "sap_belize"
+            ]
+    },
+    "sap.ui5": {
+            "_version": "1.1.0",
+            "dependencies": {
+                    "minUI5Version": "1.38.1",
+                    "libs": {
+                            "sap.m": {
+                                    "minVersion": "1.38.1",
+                                    "lazy" : false
+                            }
+                    }
+            },
+            "resources": {
+                "css": [
+                        {
+                                "uri": "./view/css/statistics.css"
+                        },
+                        {
+                                "uri": "./view/css/table.css"
+                        }
+                ]
+            },
+            "extends": {
+                    "component": "sap.apf.base"
+            },
+            "contentDensities": {
+                    "compact": true,
+                    "cozy": true
+            },
+            "models": {
+                    "i18n": {
+                            "type": "sap.ui.model.resource.ResourceModel",
+                            "uri": "i18n/texts.properties",
+                            "settings": {
+                                "bundleName": "stock.application.model.i18n.i18n",
+                                "supportedLocales": ["it", "uk", "en"]
+                            }
+                    },
+                    "products": {
+                        "dataSource": "productsRemote"
+                    }
+            },
+            "config": {
+                    "sapFiori2Adaptation": true
+            },
+            "routing": {
+                "config":{
+                        "routerClass": "sap.m.routing.Router",
+                        "path": "stock.application.view",
+                        "type": "View",
+                        "viewType": "XML",
+                        "controlId": "outlet",
+                        "controlAggregation": "pages",
+                        "async": true
+                },
+                "routes":[
+                        {
+                                "pattern": "",
+                                "name": "intro",
+                                "target": "intro"
+                        },
+                        {
+                                "pattern": "products",
+                                "name": "products",
+                                "target": "products"
+                        },
+                        {
+                                "pattern": "products/{product}",
+                                "name": "productItem",
+                                "target": "productItem"
+                        },
+                        {
+                                "pattern": "statistics",
+                                "name": "statistics",
+                                "target": "statistics"
+                        }
+                ],
+                "targets": {
+                        "intro": {
+                                "id": "intro",
+                                "name": "Intro"
+                        },
+                        "products": {
+                                "id": "products",
+                                "name": "Products"
+                        },
+                        "productItem": {
+                                "id": "productItem",
+                                "name": "Product"
+                        },
+                        "statistics": {
+                                "id": "statistics",
+                                "name": "Statistics"
+                        }
+                }
+            },
+            "rootView": {
+                "id": "appView",
+                "type": "XML",
+                "viewName": "stock.application.view.Index",
+                "async": true
+            }
+    }
+}
