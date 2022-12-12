@@ -1,3 +1,29 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
-    <Text text="Hello world!" />
+    <mvc:View
+	xmlns="sap.suite.ui.microchart"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout">
+	<l:VerticalLayout>
+		<l:HorizontalLayout>
+			<RadialMicroChart percentage="45"  class="sapUiSmallMargin"></RadialMicroChart>
+			<RadialMicroChart percentage="45"  class="sapUiSmallMargin"></RadialMicroChart>
+		</l:HorizontalLayout>
+		<l:HorizontalLayout>
+			<RadialMicroChart percentage="99.9" valueColor="Good"  class="sapUiSmallMargin"></RadialMicroChart>
+			<RadialMicroChart percentage="99.9" valueColor="Good"  class="sapUiSmallMargin"></RadialMicroChart>
+		</l:HorizontalLayout>
+		<l:HorizontalLayout>
+			<RadialMicroChart percentage="0" valueColor="Error"  class="sapUiSmallMargin"></RadialMicroChart>
+			<RadialMicroChart percentage="0" valueColor="Error"  class="sapUiSmallMargin"></RadialMicroChart>
+		</l:HorizontalLayout>
+		<l:HorizontalLayout>
+			<RadialMicroChart percentage="0.1" valueColor="Critical"  class="sapUiSmallMargin"></RadialMicroChart>
+			<RadialMicroChart percentage="0.1" valueColor="Critical"  class="sapUiSmallMargin"></RadialMicroChart>
+		</l:HorizontalLayout>
+		<l:HorizontalLayout>
+			<RadialMicroChart  class="sapUiSmallMargin"></RadialMicroChart>
+			<RadialMicroChart  class="sapUiSmallMargin"></RadialMicroChart>
+		</l:HorizontalLayout>
+	</l:VerticalLayout>
+</mvc:View>
 </mvc:View>

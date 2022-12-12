@@ -1,24 +1,37 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
           xmlns:mc="sap.suite.ui.microchart"
           controllerName="stock.application.controller.Statistics">
-    <SplitContainer backgroundColor="Transparent">
-        <masterPages>
-             <List width="100%">
-                <ObjectListItem id="type-label" title="{i18n>typeElement}"/>
-                <ObjectListItem id="salary-label" title="{i18n>salaryElement}"/>
-                <ObjectListItem id="total-salary-label" title="{i18n>totalSalaryElement}"/>
-                <ObjectListItem id="percent-label" title="{i18n>percentElement}"/>
-            </List>
-        </masterPages>
-        <detailPages>
-            <VBox class="custom-container">
-                <Title text="{i18n>selectElementLabel}"/>
-                <Select width="100%" items="{products>/Types}" change=".selectTypeChanged">
-                    <items>
-                        <core:ListItem text="{products>TypeName}"></core:ListItem>
-                    </items>
-                </Select>
-            </VBox>
-        </detailPages>
-    </SplitContainer>
+    <Table headerText="{i18n>statTableCaption}" class="sapUiResponsiveMargin" width="auto" items="{
+            path: 'products>/Types',
+            sorter: {
+                path: 'products>Percent'
+            }
+        }">
+        <columns>
+            <Column hAlign="Center">
+                <Label text="{i18n>tableTypeColumn}" textAlign="Center"/>
+            </Column>
+            <Column hAlign="Center">
+                <Label text="{i18n>salaryElement}" textAlign="Center"/>
+            </Column>
+            <Column hAlign="Center" sortIndicator="Ascending">
+                <Label text="{i18n>percentElement}" textAlign="Center"/>
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem id="stat-row">
+                <cells>
+                    <Label vAlign="Middle" textAlign="Center" text="{products>TypeName}"/>
+                    <ObjectNumber textAlign="Center" number="{
+                        parts: [
+                            {path: 'products>Salary'},
+                            {path: 'view>/currency'}
+                        ],
+                        type: 'sap.ui.model.type.Currency'
+                    }"/>
+                    <mc:RadialMicroChart width="100%" alignContent="Center" size="S" class="little-margin-left" percentage="{products>Percent}" valueColor="{=(${view>/criticalValue} > ${products>Percent}) ? 'Error' : 'Good'}" press="press"></mc:RadialMicroChart>
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
 </mvc:View>
