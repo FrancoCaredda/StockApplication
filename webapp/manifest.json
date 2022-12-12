@@ -50,6 +50,10 @@
                             "sap.m": {
                                     "minVersion": "1.38.1",
                                     "lazy" : false
+                            },
+                            "sap.ui.core": {
+                                "minVersion": "1.38.1",
+                                "lazy" : false
                             }
                     }
             },

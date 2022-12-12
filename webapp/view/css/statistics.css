@@ -3,3 +3,35 @@
     padding-right: 5rem;
     width: 100%;
 }
+
+@media screen and (min-width: 1347px) {
+    .little-margin-left {
+        margin-left: 3rem;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .little-margin-left {
+        margin-left: 4.5rem;
+    }
+}
+
+@media screen and (min-width: 1569px) {
+    .little-margin-left {
+        margin-left: 5rem;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .little-margin-left {
+        margin-left: 6rem;
+    }
+}
+
+.footer {
+    background-color: white;
+}
+
+td {
+    padding: 0;
+}

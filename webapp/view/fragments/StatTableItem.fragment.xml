@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m"
+                         xmlns:core="sap.ui.core"
+                         xmlns:mc="sap.suite.ui.microchart">
+    <ColumnListItem id="stat-row">
+        <cells>
+            <Label vAlign="Middle" textAlign="Center" text="{products>TypeName}"/>
+            <ObjectNumber textAlign="Center" number="{
+                parts: [
+                    {path: 'products>Salary'},
+                    {path: 'view>/currency'}
+                ],
+                type: 'sap.ui.model.type.Currency'
+            }"/>
+            <mc:RadialMicroChart width="100%" alignContent="Center" size="S" class="little-margin-left" percentage="{products>Percent}" valueColor="{=(${view>/criticalValue} > ${products>Percent}) ? 'Error' : 'Good'}" press="press"></mc:RadialMicroChart>
+        </cells>
+    </ColumnListItem>
+</core:FragmentDefinition>
