@@ -12,7 +12,7 @@
                     path: 'products>Name'
                 }
               }"
-		visibleRowCount="15"
+		visibleRowCount="10"
         enableSelectAll="false"
         selectionMode="None">
 		<t:extension>
@@ -60,6 +60,12 @@
                 <Label text="{i18n>tableCountColumn}"></Label>
                 <t:template>
                         <Text text="{products>Quantity}" wrapping="false" />
+                </t:template>
+            </t:Column>
+            <t:Column hAlign="Center">
+                <Label text="{i18n>tableNavColumn}"></Label>
+                <t:template>
+                        <Button icon="sap-icon://navigation-right-arrow" press=".moveToProduct" />
                 </t:template>
             </t:Column>
         </t:columns>
