@@ -3,3 +3,39 @@
     padding-right: 5rem;
     width: 100%;
 }
+
+@media screen and (min-width: 1200px) {
+    .little-margin-left {
+        margin-left: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .little-margin-left {
+        margin-left: 3.5rem;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .little-margin-left {
+        margin-left: 4.5rem;
+    }
+}
+
+@media screen and (min-width: 1550px) {
+    .little-margin-left {
+        margin-left: 4.75rem;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .little-margin-left {
+        margin-left: 5.25rem;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .little-margin-left {
+        margin-left: 6.5rem;
+    }
+}

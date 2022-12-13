@@ -1,24 +1,54 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+<mvc:View xmlns:core="sap.ui.core" 
+          xmlns:mvc="sap.ui.core.mvc" 
+          xmlns="sap.m"
           xmlns:mc="sap.suite.ui.microchart"
+          xmlns:t="sap.ui.table"
           controllerName="stock.application.controller.Statistics">
-    <SplitContainer backgroundColor="Transparent">
-        <masterPages>
-             <List width="100%">
-                <ObjectListItem id="type-label" title="{i18n>typeElement}"/>
-                <ObjectListItem id="salary-label" title="{i18n>salaryElement}"/>
-                <ObjectListItem id="total-salary-label" title="{i18n>totalSalaryElement}"/>
-                <ObjectListItem id="percent-label" title="{i18n>percentElement}"/>
-            </List>
-        </masterPages>
-        <detailPages>
-            <VBox class="custom-container">
-                <Title text="{i18n>selectElementLabel}"/>
-                <Select width="100%" items="{products>/Types}" change=".selectTypeChanged">
-                    <items>
-                        <core:ListItem text="{products>TypeName}"></core:ListItem>
-                    </items>
-                </Select>
-            </VBox>
-        </detailPages>
-    </SplitContainer>
+    <t:Table id="stat-table" class="sapUiResponsiveMargin" rows="{
+            path: 'products>/Types',
+            sorter: {
+                path: 'products>Percent'
+            }
+        }"
+        visibleRowCount="5"
+        enableSelectAll="false"
+        selectionMode="None">
+        <t:extension>
+            <OverflowToolbar>
+                <Title text="{i18n>statTableCaption}"/>
+                <ToolbarSpacer />
+                <SearchField id="search-field" liveChange=".searchType"/>
+                <Button icon="sap-icon://clear-filter" press=".clearFilter"/>
+            </OverflowToolbar>
+        </t:extension>
+        <t:columns>
+            <t:Column hAlign="Center">
+                <Label text="{i18n>tableTypeColumn}"/>
+                <t:template>
+                    <Label text="{products>TypeName}"/>
+                </t:template>
+            </t:Column>
+            <t:Column hAlign="Center">
+                <Label text="{i18n>salaryElement}"/>
+                <t:template>
+                    <ObjectNumber textAlign="Center" number="{
+                        parts: [
+                            {path: 'products>Salary'},
+                            {path: 'view>/currency'}
+                        ],
+                        type: 'sap.ui.model.type.Currency'
+                    }"/>
+                </t:template>
+            </t:Column>
+            <t:Column hAlign="Center">
+                <Label text="{i18n>percentElement}"/>
+                <t:template>
+                    <mc:RadialMicroChart width="100%" alignContent="Center" size="S" 
+                                         class="sapUiSmallMarginTop sapUiSmallMarginBottom little-margin-left" percentage="{products>Percent}" 
+                                         valueColor="{=(${view>/criticalValue} > ${products>Percent}) ? 'Error' : 'Good'}" press="press">
+                    </mc:RadialMicroChart>
+                </t:template>
+            </t:Column>
+        </t:columns>
+    </t:Table>
 </mvc:View>

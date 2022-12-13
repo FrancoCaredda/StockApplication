@@ -1,37 +1,73 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core"
-          controllerName="stock.application.controller.Products">
-    <Table id="products-table" class="sapUiResponsiveMargin" width="auto" items="{
-                                                                path: 'products>/Products',
-                                                                factory: '.buildLines'
-                                                             }">
-        <headerToolbar>
-            <Toolbar>
-                <Title text="{i18n>products}" />
+<mvc:View xmlns:mvc="sap.ui.core.mvc" 
+          xmlns="sap.m" 
+          xmlns:core="sap.ui.core"
+          controllerName="stock.application.controller.Products"
+          xmlns:t="sap.ui.table">
+    <t:Table
+        id="products-table"
+        class="sapUiResponsiveMargin"
+		rows="{
+                path: 'products>/Products',
+                sorter: {
+                    path: 'products>Name'
+                }
+              }"
+		visibleRowCount="10"
+        enableSelectAll="false"
+        selectionMode="None">
+		<t:extension>
+			<OverflowToolbar>
+				<Title text="{i18n>products}" />
                 <ToolbarSpacer />
-                <SearchField placeholder="{i18n>searchFieldPlaceholder}" width="25%"/>
-                <Button icon="sap-icon://navigation-up-arrow" press=".expandTable"/>
-            </Toolbar>
-        </headerToolbar>
-        <columns>
-            <Column id="name-column" hAlign="Center">
-                <Text text="{i18n>tableNameColumn}" />
-            </Column>
-            <Column id="type-column" hAlign="Center">
-                <Text text="{i18n>tableTypeColumn}" />
-            </Column>
-            <Column id="producer-column" hAlign="Center">
-                <Text text="{i18n>tableProducerColumn}" />
-            </Column>
-            <Column id="price-column" hAlign="Center">
-                <Text text="{i18n>tablePriceColumn}" />
-            </Column>
-            <Column id="count-column" hAlign="Center">
-                <Text text="{i18n>tableCountColumn}" />
-            </Column>
-        </columns>
-        <dependents>
-             <core:Fragment fragmentName="stock.application.view.fragments.TableItem" type="XML" />
-             <core:Fragment fragmentName="stock.application.view.fragments.TableItemUnavailable" type="XML" />
-        </dependents>
-    </Table>
+                <Select id="type-select" forceSelection="false" selectedKey="{/selectedType}" change=".typeChanged"  items="{
+                        path: 'products>/Types',
+                        factory: '.generateSearchList'
+                    }">
+                    <dependents>
+                        <core:ListItem id="search-list-item-type" text="{products>TypeName}"></core:ListItem>
+                    </dependents>
+                </Select>
+                <SearchField id="search-field" placeholder="{i18n>searchFieldPlaceholder}" liveChange=".searchFieldChanged" width="25%"/>
+                <Button icon="sap-icon://clear-filter" press=".clearFilter"/>
+			</OverflowToolbar>
+		</t:extension>
+        <t:columns>
+            <t:Column hAlign="Center">
+                <Label text="{i18n>tableNameColumn}"></Label>
+                <t:template>
+                        <Text text="{products>Name}" wrapping="false" />
+                </t:template>
+            </t:Column>
+            <t:Column hAlign="Center">
+                <Label text="{i18n>tableTypeColumn}"></Label>
+                <t:template>
+                        <Text text="{products>Type}" wrapping="false" />
+                </t:template>
+            </t:Column>
+            <t:Column hAlign="Center">
+                <Label text="{i18n>tableProducerColumn}"></Label>
+                <t:template>
+                        <Text text="{products>Producer}" wrapping="false" />
+                </t:template>
+            </t:Column>
+            <t:Column hAlign="Center">
+                <Label text="{i18n>tablePriceColumn}"></Label>
+                <t:template>
+                        <Text text="{products>Price}" wrapping="false" />
+                </t:template>
+            </t:Column>
+            <t:Column hAlign="Center">
+                <Label text="{i18n>tableCountColumn}"></Label>
+                <t:template>
+                        <Text text="{products>Quantity}" wrapping="false" />
+                </t:template>
+            </t:Column>
+            <t:Column hAlign="Center">
+                <Label text="{i18n>tableNavColumn}"></Label>
+                <t:template>
+                        <Button icon="sap-icon://navigation-right-arrow" press=".moveToProduct" />
+                </t:template>
+            </t:Column>
+        </t:columns>
+	</t:Table>
 </mvc:View>
