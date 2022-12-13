@@ -15,7 +15,7 @@
             <OverflowToolbar>
                 <Label text="© 2022" class="sapUiSmallMarginBegin"/>
 				<ToolbarSpacer/>
-				<Label text="by Franco Caredda" class="sapUiSmallMarginEnd"/>
+				
 			</OverflowToolbar>
         </footer>
     </Page>

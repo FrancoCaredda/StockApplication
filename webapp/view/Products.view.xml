@@ -1,6 +1,6 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core"
           controllerName="stock.application.controller.Products">
-    <Table id="products-table" class="sapUiResponsiveMargin" width="auto" items="{
+    <Table id="products-table" class="sapUiResponsiveMargin sapFDynamicPageAlignContent" width="auto" items="{
                                                                 path: 'products>/Products',
                                                                 factory: '.buildLines'
                                                              }">
@@ -8,7 +8,15 @@
             <Toolbar>
                 <Title text="{i18n>products}" />
                 <ToolbarSpacer />
-                <SearchField placeholder="{i18n>searchFieldPlaceholder}" width="25%"/>
+                <Select forceSelection="false" selectedKey="{/selectedType}" change=".typeChanged"  items="{
+                        path: 'products>/Types',
+                        factory: '.generateSearchList'
+                    }">
+                    <dependents>
+                        <core:ListItem id="search-list-item-type" text="{products>TypeName}"></core:ListItem>
+                    </dependents>
+                </Select>
+                <SearchField placeholder="{i18n>searchFieldPlaceholder}" liveChange=".searchFieldChanged" width="25%"/>
                 <Button icon="sap-icon://navigation-up-arrow" press=".expandTable"/>
             </Toolbar>
         </headerToolbar>
