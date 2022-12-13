@@ -7,7 +7,6 @@ sap.ui.define([
     'use strict';
     
     return Controller.extend("stock.application.controller.Products", {
-        _tableExpanded: false,
         _searchCutList: [
             "Total",
             "All"
@@ -21,32 +20,12 @@ sap.ui.define([
 
             binding.filter(filter, "Products");
         },
-        onInit: function() {
-            
-        },
-        onAfterRendering: function() {
-            // const binding = this.getView().byId("products-table").getBinding("items");
+        clearFilter: function(event) {
+            const binding = this.getView().byId("products-table").getBinding("rows");
+            this._filter(binding, FilterOperator.Contains, "Type", undefined);
 
-            // this._filter(binding, FilterOperator.EQ, "Type", "Console");
-        },
-        expandTable: function(event) {
-            const control = event.getSource();
-            const model = this.getView().getModel("view");
-
-            if (!this._tableExpanded) {
-                control.setProperty("icon", "sap-icon://navigation-up-arrow");
-            } else {
-                control.setProperty("icon", "sap-icon://navigation-down-arrow");
-            }
-
-            this._tableExpanded = !this._tableExpanded;
-        },
-        buildLines: function(sId, oContext) {
-            if (oContext.getProperty("Quantity") == 0) {
-                return this.getView().byId("itemUnavailable").clone(sId);
-            }
-
-            return this.getView().byId("simpleItem").clone(sId);
+            this.getView().byId("search-field").clear();
+            this.getView().byId("type-select").setValue(null);
         },
         moveToProduct: function(event) {
             const router = this.getOwnerComponent().getRouter();
@@ -60,12 +39,12 @@ sap.ui.define([
             }
         },
         searchFieldChanged: function(event) {
-            const binding = this.getView().byId("products-table").getBinding("items");
+            const binding = this.getView().byId("products-table").getBinding("rows");
             
             this._filter(binding, FilterOperator.Contains, "Name", event.getSource().getValue())
         },
         typeChanged: function(event) {
-            const binding = this.getView().byId("products-table").getBinding("items");
+            const binding = this.getView().byId("products-table").getBinding("rows");
 
             this._filter(binding, FilterOperator.EQ, "Type", event.getSource().getSelectedItem().getText())
         },
