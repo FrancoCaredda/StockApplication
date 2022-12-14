@@ -45,6 +45,15 @@ sap.ui.define([
             }
 
             return undefined;
+        },
+        insertButtonPressed: function(event) {
+            alert("You added a new record!");
+        },
+        deleteButtonPressed: function(event) {
+            confirm("Do you want to delete this record?");
+        },
+        updateButtonPressed: function(event) {
+            alert("You updated this record!");
         }
     })
 });

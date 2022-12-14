@@ -29,6 +29,7 @@
                 </Select>
                 <SearchField id="search-field" placeholder="{i18n>searchFieldPlaceholder}" liveChange=".searchFieldChanged" width="25%"/>
                 <Button icon="sap-icon://clear-filter" press=".clearFilter"/>
+                <Button icon="sap-icon://add" press=".insertButtonPressed"/>
 			</OverflowToolbar>
 		</t:extension>
         <t:columns>
@@ -65,7 +66,11 @@
             <t:Column hAlign="Center">
                 <Label text="{i18n>tableNavColumn}"></Label>
                 <t:template>
-                        <Button icon="sap-icon://navigation-right-arrow" press=".moveToProduct" />
+                    <HBox alignItems="Center" alignContent="Center">
+                        <Button icon="sap-icon://refresh" class="sapUiSmallMarginBegin sapUiSmallMarginEnd" width="5%" press=".updateButtonPressed" />
+                        <Button icon="sap-icon://delete" class="sapUiSmallMarginBegin sapUiSmallMarginEnd" width="5%" press=".deleteButtonPressed" />
+                        <Button icon="sap-icon://navigation-right-arrow" class="sapUiSmallMarginBegin sapUiSmallMarginEnd" width="5%" press=".moveToProduct" />
+                    </HBox>
                 </t:template>
             </t:Column>
         </t:columns>

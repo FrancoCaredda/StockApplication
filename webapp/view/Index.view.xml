@@ -15,7 +15,6 @@
             <OverflowToolbar>
                 <Label text="© 2022" class="sapUiSmallMarginBegin"/>
 				<ToolbarSpacer/>
-				
 			</OverflowToolbar>
         </footer>
     </Page>
